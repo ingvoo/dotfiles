@@ -10,6 +10,8 @@ alias -- -="cd -"
 
 # Folders
 alias clients='cd ~/projects/clients'
+alias liip='cd ~/projects/liip'
+alias friends='cd ~/projects/friends'
 alias ingvi='cd ~/projects/ingvijonasson'
 
 # Edit /etc/hosts file
