@@ -10,9 +10,22 @@ alias -- -="cd -"
 
 # Folders
 alias clients='cd ~/projects/clients'
+alias pia='cd ~/projects/clients/piaget/styleguide'
+
+# Projects
+alias staha='cd ~projects/clients/stapferhaus/relaunch'
+alias staharun='cd ~/projects/clients/stapferhaus/relaunch && npm run start'
+alias hci='cd ~/projects/clients/hci/documedis'
+alias hcirun='cd ~/projects/clients/hci/documedis && dotnet run -p Documedis.Web.Application'
+alias pitch='cd ~/projects/clients/exlibris/pitch' 
+alias pitchrun='cd ~/projects/clients/exlibris/pitch && yarn run serve'
+
 alias liip='cd ~/projects/liip'
 alias friends='cd ~/projects/friends'
 alias ingvi='cd ~/projects/ingvijonasson'
+
+# Edit aliases or this file
+alias editalias= 'cd ~ && vim .dotfiles/.alias'
 
 # Edit /etc/hosts file
 alias editHosts='sudo edit /etc/hosts'
