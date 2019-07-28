@@ -10,17 +10,18 @@ alias -- -="cd -"
 
 # Folders
 alias clients='cd ~/projects/clients'
+alias friends='cd ~/projects/friends'
+alias ingvi='cd ~/projects/ingvijonasson'
 
 alias staha='cd ~/projects/clients/stapferhaus/relaunch'
 alias staharun='cd ~/projects/clients/stapferhaus/relaunch && npm run start'
-alias hci='cd ~/projects/clients/hci/documedis'
-alias hcirun='cd ~/projects/clients/hci/documedis && dotnet run -p Documedis.Web.Application'
-alias pitch='cd ~/projects/clients/exlibris/pitch'
-alias pitchrun='cd ~/projects/clients/exlibris/pitch && npm run serve'
 
-alias liip='cd ~/projects/liip'
-alias friends='cd ~/projects/friends'
-alias ingvi='cd ~/projects/ingvijonasson'
+alias hci='cd ~/projects/clients/hci'
+alias hcirun='cd ~/projects/clients/hci/hci-bootstrap-2019 && dotnet run -p Documedis.Web.Application'
+alias hcicopy='rsync -avz --exclude '*.html' ~/projects/clients/hci/hci-styleguide/dist/* ~/projects/clients/hci/hci-bootstrap-2019/Documedis.Web.Application/wwwroot/'
+
+alias kk='cd ~/projects/clients/kkgeo/geobasisdaten'
+alias kkrun='cd ~/projects/clients/kkgeo/geobasisdaten/frontend && npm run serve'
 
 # Edit aliases or this file
 alias editAlias='vim ~/.dotfiles/.alias'
@@ -96,11 +97,11 @@ alias myip='curl ip.appspot.com'
 # Get macOS Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade --all; brew cleanup; brew cask update; brew cask cleanup; n latest; npm install npm -g; npm update -g; tldr -u; sudo gem update --system; sudo gem update; sudo gem cleanup'
 
-# nvm uses n to set the node version to the current nvmrc file
-alias nvm='n $(<.nvmrc)'
-
 # Lock the screen (when going AFK)
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 
 # copies the public key to the clibboard
 alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
+
+#!/usr/bin/env bash
+#!/usr/bin/env bash
