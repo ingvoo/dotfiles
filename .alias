@@ -8,29 +8,21 @@ alias .....="cd ../../../.."
 alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
-# Folders
+# Projects navigation
+alias projects='cd ~/projects'
 alias clients='cd ~/projects/clients'
 alias friends='cd ~/projects/friends'
 alias ingvi='cd ~/projects/ingvijonasson'
 
-alias staha='cd ~/projects/clients/stapferhaus/relaunch'
-alias staharun='cd ~/projects/clients/stapferhaus/relaunch && npm run start'
+# Navigate to some repos that are being worked on
+alias arkio='cd ~/projects/clients/arkio'
+alias livindo='cd ~/projects/clients/fastforward/livindo'
 
-alias hci='cd ~/projects/clients/hci'
-alias hcirun='cd ~/projects/clients/hci/hci-bootstrap-2019 && dotnet run -p Documedis.Web.Application'
-alias hcicopy='rsync -avz --exclude '*.html' ~/projects/clients/hci/hci-styleguide/dist/* ~/projects/clients/hci/hci-bootstrap-2019/Documedis.Web.Application/wwwroot/'
-
-alias kk='cd ~/projects/clients/kkgeo/geobasisdaten'
-alias kkrun='cd ~/projects/clients/kkgeo/geobasisdaten/frontend && npm run serve'
-
-# Edit aliases or this file
+# Edit this file quickly
 alias editAlias='vim ~/.dotfiles/.alias'
 
 # Edit /etc/hosts file
 alias editHosts='sudo vim /etc/hosts'
-
-# App & command aliases
-alias chrome='open -a "Google Chrome" '
 
 # Empty the Trash on all mounted volumes and the main HDD.
 # Also, clear Apple’s System Logs to improve shell startup speed.
@@ -102,6 +94,3 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 
 # copies the public key to the clibboard
 alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
-
-#!/usr/bin/env bash
-#!/usr/bin/env bash

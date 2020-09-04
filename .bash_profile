@@ -4,8 +4,10 @@ bind "set completion-ignore-case on"
 # automatically show all tab complete options
 bind "set show-all-if-ambiguous on"
 bind "set bell-style none"
+
 # Immediately add a trailing slash when autocompleting symlinks to directories
 bind "set mark-symlinked-directories on"
+
 # Allow UTF-8 input and output, instead of showing stuff like $'\0123\0456'
 bind "set input-meta on"
 bind "set output-meta on"

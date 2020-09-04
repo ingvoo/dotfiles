@@ -3,6 +3,12 @@
 # logging
 function e_header() { echo -e "\n\033[1m$@\033[0m"; }
 
+# Ask for the administrator password upfront
+sudo -v
+
+# Keep-alive: update existing `sudo` time stamp until `freshinstall` has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
 cd ~/.dotfiles
 
 # install homebrew if not already there
@@ -17,7 +23,7 @@ brew update
 
 brew install dialog
 
-if ( ! dialog --yesno "Do you want to install meodai's ❣ .dotfiles?" 6 30) then
+if ( ! dialog --yesno "Do you want to install ingvi's ❣ .dotfiles?" 6 30) then
     return;
 fi;
 
@@ -35,9 +41,7 @@ mas signin $appleid
 e_header '💾 Installing Applications and command line tools'
 # restore installed apps
 brew bundle
-brew install https://raw.github.com/gleitz/howdoi/master/howdoi.rb
-go get github.com/cespare/reflex
-pip3 install coala-bears
+sudo xcodebuild -license accept
 
 # Remove outdated versions from the cellar.
 brew cleanup
@@ -56,6 +60,7 @@ skype
 [configuration_files]
 .gitignore_global
 .bash_profile
+
 EOT
 
 e_header '📦 Restores configs from mackup'
@@ -68,10 +73,10 @@ e_header '💾 Creates a backup of you current .bash_profile'
 cat ~/.bash_profile > ~/.bash_profile.backup
 
 
-e_header '🖌 Creates a new .bash_prfole'
+e_header '🖌 Creates a new .bash_profile'
 # create new bash profile
 cat >~/.bash_profile <<'EOT'
-# Add `~/bin` to the `$PATH`
+#  Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH";
 
 # Load the shell dotfiles, and then some:
@@ -90,6 +95,7 @@ EOT
 
 e_header '✅ Making sure you are using the latest node'
 sudo n latest
+sudo chown -R $USER /usr/local/n/
 
 e_header '💪 Updates NPM'
 npm update -g npm
@@ -98,10 +104,18 @@ e_header '🍉 Installing global node modules'
 
 #node stuff
 npm_globals=(
-  peerflix
+  @frctl/fractal@1.3.0
   node-inspector
-  gulp-cli
-  vue-cli
+  @frctl/fractal@1.3.0
+  @vue/cli@4.0.5
+  babel-eslint@10.0.2
+  cowsay@1.4.0
+  eslint@6.1.0
+  gatsby-cli@2.7.28
+  json-server@0.15.0
+  netlify-cli@2.24.0
+  npm@6.13.4
+  parcel-bundler
   svgo
 )
 
@@ -109,8 +123,6 @@ for npmglobal in "${npm_globals[@]}"
 do
   npm install -g ${npmglobal};
 done
-
-curl https://install.meteor.com/ | sh
 
 e_header '✅ Makes sure you are using the most recent version of BASH'
 sudo -s
@@ -126,6 +138,23 @@ fi;
 # make sure seeyouspacecowboy is called on EXIT
 echo 'sh ~/.dotfiles/seeyouspacecowboy.sh; sleep 2' >> ~/.bash_logout
 
+# Updates all apps and stuff
+update
+
+# Setup projects folder
+if ( dialog --yesno "Do you wish to have a 'projects' folder?" 6 30) then
+e_header '💾 Creating projects folder'
+mkdir ~/projects/
+
+# makes sure mackup config is correct before restoring backup
+cat >/etc/apache2/users/${USER}.conf <<'EOT'
+<Directory "/Users/$USER/Sites/">
+	AllowOverride All
+	Options Indexes MultiViews FollowSymLinks
+	Require all granted
+</Directory>
+EOT
+
 # loads the brand new bash_profile
 source ~/.bash_profile
 
@@ -133,4 +162,3 @@ e_header '🍺 you did it! 🍺'
 
 # byebye
 . seeyouspacecowboy.sh
-
