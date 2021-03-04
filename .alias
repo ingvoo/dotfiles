@@ -8,18 +8,19 @@ alias .....="cd ../../../.."
 alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
-# Projects navigation
+# Folders navigation
 alias projects='cd ~/projects'
 alias clients='cd ~/projects/clients'
 alias friends='cd ~/projects/friends'
-alias ingvi='cd ~/projects/ingvijonasson'
+alias ingvi='cd ~/projects/ingvi'
 
-# Navigate to some repos that are being worked on
-alias arkio='cd ~/projects/clients/arkio'
-alias livindo='cd ~/projects/clients/fastforward/livindo'
+# Projects navigation
+alias mobi='cd ~/projects/clients/mobi'
+alias ff='cd ~/projects/clients/fastforward'
+alias arkio='cd ~/projects/clients/arkio´
 
 # Edit this file quickly
-alias editAlias='vim ~/.dotfiles/.alias'
+alias editalias='vim ~/.dotfiles/.alias'
 
 # Edit /etc/hosts file
 alias editHosts='sudo vim /etc/hosts'
@@ -44,6 +45,7 @@ alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\
 export TERM=xterm-color
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
+export GITHUB_TOKEN="156382772734efd217d3f407a26e090ab965eb69"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -91,6 +93,3 @@ alias update='sudo softwareupdate -i -a; brew update; brew upgrade --all; brew c
 
 # Lock the screen (when going AFK)
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
-
-# copies the public key to the clibboard
-alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
