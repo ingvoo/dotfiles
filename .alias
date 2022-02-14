@@ -5,25 +5,27 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
-alias ~="cd ~" # `cd` is probably faster to type though
+alias ~="cd ~"
 alias -- -="cd -"
 
 # Folders navigation
 alias projects='cd ~/projects'
 alias clients='cd ~/projects/clients'
 alias friends='cd ~/projects/friends'
-alias ingvi='cd ~/projects/ingvi'
+alias ingvoo='cd ~/projects/ingvi'
 
-# Projects navigation
+# Clients navigation
 alias mobi='cd ~/projects/clients/mobi'
 alias ff='cd ~/projects/clients/fastforward'
-alias arkio='cd ~/projects/clients/arkio´
+alias arkio='cd ~/projects/clients/arkio'
 
-# Edit this file quickly
-alias editalias='vim ~/.dotfiles/.alias'
+# Projects navigation
+alias mb2c='cd ~/projects/clients/mobi/rwc-b2c-components-ng-jslib'
+alias mux='cd ~/projects/clients/mobi/rwc-uxframework-ng-jslib'
 
 # Edit /etc/hosts file
-alias editHosts='sudo vim /etc/hosts'
+alias edithosts='sudo vim /etc/hosts'
+alias editalias='sudo vim ~/.dotfiles/.alias'
 
 # Empty the Trash on all mounted volumes and the main HDD.
 # Also, clear Apple’s System Logs to improve shell startup speed.
@@ -77,8 +79,9 @@ alias grep='grep -r -n --extended-regexp --color=auto --exclude-dir=.svn --exclu
 alias less='less -r'
 alias ls='ls -alhsF ${colorflag} -G'
 
-# GIT
-alias gittree='git log --graph --full-history --all --pretty=format:"%h%x09%d%x20%s"'
+# GIT Logging
+alias gittree='git log --color --graph --full-history --all --pretty=format:"%h%x09%d%x20%s"'
+alias gitlog='git log --color --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit --branches'
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
